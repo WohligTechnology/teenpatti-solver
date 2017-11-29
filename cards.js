@@ -46,3 +46,54 @@ module.exports.cardValue = function (card) {
         console.error(new Error("Incorrect Card Value " + card));
     }
 };
+
+module.exports.keyToString = function (key) {
+    key = parseInt(key);
+    var retVal = "";
+    switch (key) {
+        case 1:
+            retVal = "A";
+            break;
+        case 14:
+            retVal = "A";
+            break;
+        case 2:
+            retVal = "2";
+            break;
+        case 3:
+            retVal = "3";
+            break;
+        case 4:
+            retVal = "4";
+            break;
+        case 5:
+            retVal = "5";
+            break;
+        case 6:
+            retVal = "6";
+            break;
+        case 7:
+            retVal = "7";
+            break;
+        case 8:
+            retVal = "8";
+            break;
+        case 9:
+            retVal = "9";
+            break;
+        case 10:
+            retVal = "10";
+            break;
+        case 11:
+            retVal = "J";
+            break;
+        case 12:
+            retVal = "Q";
+            break;
+        case 13:
+            retVal = "K";
+            break;
+
+    }
+    return retVal;
+};

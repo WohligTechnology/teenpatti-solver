@@ -19,25 +19,27 @@ function rankHands(playerCards) {
 
     // High Card
     handStatus.no = 0;
+    handStatus.name = "High Card";
     if (clonePlayerCards[0].number == 1) {
-        handStatus.handRanking = "High Card";
         handStatus.card1 = 14;
         handStatus.card2 = clonePlayerCards[2].number;
         handStatus.card3 = clonePlayerCards[1].number;
+        handStatus.desc = "High Card of A";
     } else {
-        handStatus.handRanking = "High Card";
         handStatus.card1 = clonePlayerCards[2].number;
         handStatus.card2 = clonePlayerCards[1].number;
         handStatus.card3 = clonePlayerCards[0].number;
+        handStatus.desc = "High Card of " + cards.keyToString(clonePlayerCards[2].number);
     }
 
     // Pair
     if (sameNumberCount == 2) {
-        handStatus.handRanking = "Pair";
+        handStatus.name = "Pair";
         handStatus.no = 1;
         _.each(groupByNumber, function (n, key) {
             if (n.length == 2) {
                 handStatus.card1 = key;
+                handStatus.desc = "Pair of " + cards.keyToString(key);
             } else {
                 handStatus.card2 = key;
             }
@@ -48,30 +50,38 @@ function rankHands(playerCards) {
     // Color
     if (sameColorCount == 1) {
         handStatus.no = 2;
-        handStatus.handRanking = "Color";
+        handStatus.name = "Color";
+        handStatus.desc = "Color of " + cards.keyToString(handStatus.card1) + " High";
     }
 
     // Sequence
     if (isSequence) {
         handStatus.no = 3;
-        handStatus.handRanking = "Sequence";
+        handStatus.name = "Sequence";
+        handStatus.desc = "Sequence of " + cards.keyToString(handStatus.card1) + " High";
     }
 
     // Pure Sequence
     if (sameColorCount == 1 && isSequence) {
         handStatus.no = 4;
-        handStatus.handRanking = "Pure Sequence";
+        handStatus.name = "Pure Sequence";
+        handStatus.desc = "Pure Sequence of " + cards.keyToString(handStatus.card1) + " High";
     }
 
     // Trio
     if (sameNumberCount == 1) {
         handStatus.no = 5;
-        handStatus.handRanking = "Trio";
+        handStatus.name = "Trio";
+        handStatus.desc = "Trio of " + cards.keyToString(handStatus.card1);
     }
 
 
     handStatus.score = (handStatus.no * 1000000) + (handStatus.card1 * 10000) + (handStatus.card2 * 100) + (handStatus.card3 * 1);
-    return handStatus;
+    return {
+        name: handStatus.name,
+        desc: handStatus.desc,
+        score: handStatus.score
+    };
 }
 
 
@@ -81,7 +91,7 @@ var players = [
 
     {
         name: "1",
-        cards: ["As", "Ks", "Js"]
+        cards: ["Ts", "2c", "5s"]
     },
     {
         name: "2",
@@ -90,6 +100,14 @@ var players = [
     {
         name: "3",
         cards: ["2c", "2d", "2h"]
+    },
+    {
+        name: "4",
+        cards: ["5d", "6c", "6s"]
+    },
+    {
+        name: "4",
+        cards: ["Ad", "2d", "4d"]
     }
 
 
