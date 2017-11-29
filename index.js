@@ -1,9 +1,6 @@
 var _ = require("lodash");
 var cards = require("./cards");
 
-
-
-
 function rankHands(playerCards) {
     var clonePlayerCards = _.sortBy(_.map(playerCards, function (n) {
         return cards.cardValue(n);
@@ -86,5 +83,4 @@ function rankHands(playerCards) {
         score: handStatus.score
     };
 }
-
 module.exports = rankHands;
