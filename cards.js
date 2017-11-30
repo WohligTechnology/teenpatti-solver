@@ -97,3 +97,11 @@ module.exports.keyToString = function (key) {
     }
     return retVal;
 };
+
+module.exports.numberValue = function (card) {
+    var cardObj = module.exports.cardValue(card);
+    if (cardObj.number == 1) {
+        cardObj.number = 14;
+    }
+    return cardObj.number;
+};

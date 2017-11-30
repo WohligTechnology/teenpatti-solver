@@ -1,4 +1,5 @@
 var _ = require("lodash");
+var Combinatorics = require('js-combinatorics');
 var cards = require("./cards");
 
 
@@ -158,7 +159,26 @@ function scoreHandsTwo(playerCards) {
 }
 
 function scoreHandsFour(playerCards) {
-
+    if (playerCards.length == 4) {
+        var only3Cards = Combinatorics.combination(playerCards, 3);
+        var playerCombinations = [];
+        while (a = only3Cards.next()) {
+            var obj = {
+                cards: a,
+                details: scoreHandsNormal(a),
+                remainingCard: _.head(_.difference(playerCards, a)),
+            };
+            obj.remainingPoints = cards.numberValue(obj.remainingCard);
+            obj.details.score = obj.details.score * 100 + obj.remainingPoints;
+            playerCombinations.push(obj);
+        }
+        var playerScoreObj = _.maxBy(playerCombinations, function (n) {
+            return n.details.score;
+        });
+        return playerScoreObj.details;
+    } else {
+        console.err(new Error("Number of cards in Score Hands Incorrect"));
+    }
 }
 
 var retObj = {
