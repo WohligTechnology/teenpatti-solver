@@ -1,8 +1,8 @@
 {
   "name": "teenpattisolver",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Teen Patti Solver for Node.Js",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
