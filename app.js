@@ -2,12 +2,18 @@ var _ = require("lodash");
 var teenPattiScore = require("./index");
 var players = [{
     name: "1",
-    cards: ["Ts", "2c", "5d", "Td"]
+    cards: ["Ts", "2c", "5d"],
+}, {
+    name: "2",
+    cards: ["3s", "2c", "5d"]
+}, {
+    name: "2",
+    cards: ["As", "Ac", "Ad"]
 }];
 
 
 _.each(players, function (player) {
-    player.details = teenPattiScore.scoreHandsFour(player.cards);
+    player.details = teenPattiScore.scoreHandsLowest(player.cards);
     player.score = player.details.score;
 });
 
