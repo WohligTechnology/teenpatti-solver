@@ -1,24 +1,31 @@
-var _ = require("lodash");
 var teenPattiScore = require("./index");
-var players = [{
-    name: "1",
-    cards: ["Ts", "2c", "5d"],
-}, {
-    name: "2",
-    cards: ["3s", "2c", "5d"]
-}, {
-    name: "2",
-    cards: ["As", "Ac", "Ad"]
-}];
+
+var handNormal = teenPattiScore.scoreHandsNormal(["As", "Ad", "Ac"]);
+// handNormal : {
+//     name: 'Trio',
+//     desc: 'Trio of A',
+//     score: 5140101
+// }
 
 
-_.each(players, function (player) {
-    player.details = teenPattiScore.scoreHandsLowest(player.cards);
-    player.score = player.details.score;
-});
+var handTwo = teenPattiScore.scoreHandsTwo(["As", "Ad"]);
+// handTwo: {
+//     name: 'Pair',
+//     desc: 'Pair of A',
+//     score: 41401
+// }
 
-var ranking = _.orderBy(players, function (n) {
-    return n.score * -1;
-});
 
-console.log(ranking);
+var handFour = teenPattiScore.scoreHandsFour(["As", "Ad", "Ac", "Ah"]); // Best of 3
+// handFour: {
+//     name: 'Trio',
+//     desc: 'Trio of A',
+//     score: 514010114
+// }
+
+var handLowest = teenPattiScore.scoreHandsLowest(["2s", "3d", "5c"]);
+// handLowest: {
+//     name: 'High Card',
+//     desc: 'High Card of 5',
+//     score: 9949698
+// }
