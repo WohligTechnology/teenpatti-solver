@@ -1,5 +1,4 @@
 # teenpatti-solver
-# teenpatti-solver
 
 Importing file
 ```javascript
