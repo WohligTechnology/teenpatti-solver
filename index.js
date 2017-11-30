@@ -181,17 +181,15 @@ function scoreHandsFour(playerCards) {
     }
 }
 
-
 function scoreHandsLowest(playerCards) {
     var retVal = scoreHandsNormal(playerCards);
     retVal.score = 10000000 - retVal.score;
     return retVal;
 }
 
-var retObj = {
+module.exports = {
     scoreHandsNormal: scoreHandsNormal,
     scoreHandsTwo: scoreHandsTwo,
     scoreHandsFour: scoreHandsFour,
     scoreHandsLowest: scoreHandsLowest
 };
-module.exports = retObj;
