@@ -1,4 +1,11 @@
-# Teen Patti Solver
+# Teen Patti Solver for Node.Js
+
+
+Install
+```javascript
+npm install teenpattisolver
+```
+
 
 Importing file
 ```javascript
