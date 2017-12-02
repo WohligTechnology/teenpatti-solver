@@ -23,6 +23,7 @@ var handFour = teenPattiScore.scoreHandsFour(["As", "Ad", "Ac", "Ah"]); // Best 
 //     score: 514010114
 // }
 
+
 var handLowest = teenPattiScore.scoreHandsLowest(["2s", "3d", "5c"]);
 // handLowest: {
 //     name: 'High Card',
