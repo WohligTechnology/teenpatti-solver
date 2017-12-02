@@ -1,11 +1,10 @@
 var teenPattiScore = require("./index");
 
-var handNormal = teenPattiScore.scoreHandsNormal(["As", "Ad", "Ac"]);
-// handNormal : {
-//     name: 'Trio',
-//     desc: 'Trio of A',
-//     score: 5140101
-// }
+var handNormal = teenPattiScore.scoreHandsNormal(["Js", "Ks", "Qs"]);
+var handNormal2 = teenPattiScore.scoreHandsNormal(["Ac", "2c", "3c"]);
+
+console.log(handNormal);
+console.log(handNormal2);
 
 
 var handTwo = teenPattiScore.scoreHandsTwo(["As", "Ad"]);

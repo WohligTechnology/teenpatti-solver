@@ -54,14 +54,18 @@ function scoreHandsNormal(playerCards) {
         if (sameColorCount == 1) {
             handStatus.no = 2;
             handStatus.name = "Color";
-            handStatus.desc = "Color of " + cards.keyToString(handStatus.card1) + " High";
+            handStatus.desc = "Color of " + cards.keyToString(clonePlayerCards[2].number) + " High";
         }
 
         // Sequence
         if (isSequence) {
+            handStatus.card1 = clonePlayerCards[2].number;
+            handStatus.card2 = clonePlayerCards[1].number;
+            handStatus.card3 = clonePlayerCards[0].number;
             handStatus.no = 3;
             handStatus.name = "Sequence";
             handStatus.desc = "Sequence of " + cards.keyToString(handStatus.card1) + " High";
+
         }
 
         // Pure Sequence
@@ -127,6 +131,8 @@ function scoreHandsTwo(playerCards) {
 
         // Sequence
         if (isSequence) {
+            handStatus.card1 = clonePlayerCards[1].number;
+            handStatus.card2 = clonePlayerCards[0].number;
             handStatus.no = 2;
             handStatus.name = "Sequence";
             handStatus.desc = "Sequence of " + cards.keyToString(handStatus.card1) + " High";
