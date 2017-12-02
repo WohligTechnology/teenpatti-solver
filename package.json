@@ -1,6 +1,6 @@
 {
   "name": "teenpattisolver",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Teen Patti Solver for Node.Js",
   "main": "index.js",
   "scripts": {
