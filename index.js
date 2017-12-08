@@ -221,7 +221,13 @@ function scoreHandsJoker(playerCards, joker) {
         case 1:
             card1 = nonJokerCards[0];
             card2 = nonJokerCards[1];
-            playerScoreObj = scoreHandsNormal([card1, card2, card3]);
+            var allCards = _.map(cards.getAllCards(), "shortName");
+            var allCasesObjs = _.map(allCards, function (n) {
+                return scoreHandsNormal([card1, card2, n]);
+            });
+            playerScoreObj = _.maxBy(allCasesObjs, function (n) {
+                return n.score;
+            });
             break;
         case 2:
             card1 = nonJokerCards[0];

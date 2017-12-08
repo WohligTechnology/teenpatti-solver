@@ -31,10 +31,9 @@ var handLowest = teenPattiScore.scoreHandsLowest(["2s", "3d", "5c"]);
 //     score: 9949698
 // }
 
-var handJoker = teenPattiScore.scoreHandsJoker(["Qs", "5d", "Qh"], "Qc");
-console.log(handJoker);
+var handJoker = teenPattiScore.scoreHandsJoker(["Qs", "5d", "3h"], "Qc");
 // handJoker: {
-//     name: 'High Card',
-//     desc: 'High Card of 5',
-//     score: 9949698
+//     name: 'Sequence',
+//     desc: 'Sequence of 5 High',
+//     score: 3050403
 // }
