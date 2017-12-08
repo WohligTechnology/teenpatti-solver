@@ -132,8 +132,10 @@ function scoreHandsTwo(playerCards) {
 
         // Sequence
         if (isSequence) {
-            handStatus.card1 = clonePlayerCards[1].number;
-            handStatus.card2 = clonePlayerCards[0].number;
+            if (clonePlayerCards[0].number == 1 && clonePlayerCards[1].number == 2) {
+                handStatus.card1 = clonePlayerCards[1].number;
+                handStatus.card2 = clonePlayerCards[0].number;
+            }
             handStatus.no = 2;
             handStatus.name = "Sequence";
             handStatus.desc = "Sequence of " + cards.keyToString(handStatus.card1) + " High";
