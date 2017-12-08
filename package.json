@@ -1,6 +1,6 @@
 {
   "name": "teenpattisolver",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Teen Patti Solver for Node.Js",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,7 @@
     "nodejs",
     "4 cards",
     "lowest teen patti",
-    "2 cards"
+    "2 cards",
+    "joker"
   ]
 }

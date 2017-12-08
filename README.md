@@ -55,5 +55,15 @@ var handLowest = teenPattiScore.scoreHandsLowest(["2s", "3d", "5c"]);
 // }
 ```
 
+Find Score of Player in 1 Card Joker Mode
+```javascript
+var handJoker = teenPattiScore.scoreHandsJoker(["Qs", "5d", "3h"], "Qc");
+// handJoker: {
+//     name: 'Sequence',
+//     desc: 'Sequence of 5 High',
+//     score: 3050403
+// }
+```
+
 
 
