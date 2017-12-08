@@ -193,9 +193,51 @@ function scoreHandsLowest(playerCards) {
     return retVal;
 }
 
+function scoreHandsJoker(playerCards, joker) {
+    var jokerNumber = cards.cardValue(joker).number;
+    var playerScoreObj = scoreHandsNormal(playerCards);
+    var playerCardObjects = _.map(playerCards, function (n) {
+        var cardObj = cards.cardValue(n);
+        cardObj.isJoker = (cardObj.number == jokerNumber);
+        return cardObj;
+    });
+    var numberOfJokers = _.filter(playerCardObjects, "isJoker").length;
+
+    function getNonJokerCards() {
+        var objs = _.filter(playerCardObjects, function (n) {
+            return !n.isJoker;
+        });
+        return _.map(objs, "value");
+    }
+    var nonJokerCards = getNonJokerCards();
+    var card1;
+    var card2;
+    var card3;
+
+    switch (numberOfJokers) {
+        // case 0:
+        //     playerScoreObj = playerScoreObj;
+        //     break;
+        case 1:
+            card1 = nonJokerCards[0];
+            card2 = nonJokerCards[1];
+            playerScoreObj = scoreHandsNormal([card1, card2, card3]);
+            break;
+        case 2:
+            card1 = nonJokerCards[0];
+            playerScoreObj = scoreHandsNormal([card1, card1, card1]);
+            break;
+        case 3:
+            playerScoreObj = scoreHandsNormal(["As", "Ad", "Ac"]);
+            break;
+    }
+    return playerScoreObj;
+}
+
 module.exports = {
     scoreHandsNormal: scoreHandsNormal,
     scoreHandsTwo: scoreHandsTwo,
     scoreHandsFour: scoreHandsFour,
-    scoreHandsLowest: scoreHandsLowest
+    scoreHandsLowest: scoreHandsLowest,
+    scoreHandsJoker: scoreHandsJoker
 };
