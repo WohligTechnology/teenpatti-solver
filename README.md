@@ -34,13 +34,13 @@ var handTwo = teenPattiScore.scoreHandsTwo(["As", "Ad"]);
 ```
 
 
-Find Score of Player in 4 Card Mode (Best of 3 from 4 cards, 4th Card is considered if they have similar 3 cards)
+Find Score of Player in 4 Card Mode (Best of 3 from 4 cards, 4th Card is Discarded)
 ```javascript
 var handFour = teenPattiScore.scoreHandsFour(["As", "Ad", "Ac", "Ah"]); // Best of 3
 // handFour: {
 //     name: 'Trio',
 //     desc: 'Trio of A',
-//     score: 514010114
+//     score: 5140101
 // }
 ```
 

@@ -175,7 +175,7 @@ function scoreHandsFour(playerCards) {
                 remainingCard: _.head(_.difference(playerCards, a)),
             };
             obj.remainingPoints = cards.numberValue(obj.remainingCard);
-            obj.details.score = obj.details.score * 100 + obj.remainingPoints;
+            // obj.details.score = obj.details.score * 100 + obj.remainingPoints;
             playerCombinations.push(obj);
         }
         var playerScoreObj = _.maxBy(playerCombinations, function (n) {
