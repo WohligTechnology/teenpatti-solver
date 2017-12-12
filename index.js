@@ -54,7 +54,8 @@ function scoreHandsNormal(playerCards) {
         if (sameColorCount == 1) {
             handStatus.no = 2;
             handStatus.name = "Color";
-            handStatus.desc = "Color of " + cards.keyToString(clonePlayerCards[2].number) + " High";
+            handStatus.desc = "Color of " + cards.keyToString(handStatus.card1) + " High";
+
         }
 
         // Sequence
@@ -128,6 +129,7 @@ function scoreHandsTwo(playerCards) {
             handStatus.no = 1;
             handStatus.name = "Color";
             handStatus.desc = "Color of " + cards.keyToString(handStatus.card1) + " High";
+
         }
 
         // Sequence
