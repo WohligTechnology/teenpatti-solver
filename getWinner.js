@@ -1,7 +1,7 @@
 var teenPattiScore = require("./index");
-var handJoker1 = teenPattiScore.scoreHandsNormal(["As", "Qc", "3c"]);
+var handJoker1 = teenPattiScore.scoreHandsNormal(["9s", "9d", "3c"]);
 console.log(handJoker1);
-var handJoker2 = teenPattiScore.scoreHandsNormal(["As", "Ks", "Js"]);
+var handJoker2 = teenPattiScore.scoreHandsNormal(["As", "Ad", "4c"]);
 console.log(handJoker2);
 if (handJoker1.score > handJoker2.score) {
     console.log("Player 1 is Winner");

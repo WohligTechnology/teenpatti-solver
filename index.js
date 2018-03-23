@@ -40,11 +40,19 @@ function scoreHandsNormal(playerCards) {
             handStatus.name = "Pair";
             handStatus.no = 1;
             _.each(groupByNumber, function (n, key) {
+                console.log(n, key);
                 if (n.length == 2) {
-                    handStatus.card1 = key;
+
+                    handStatus.card1 = parseInt(key);
                     handStatus.desc = "Pair of " + cards.keyToString(key);
+                    if (key == "1") {
+                        handStatus.card1 = 14;
+                    }
                 } else {
-                    handStatus.card2 = key;
+                    handStatus.card2 = parseInt(key);
+                    if (key == "1") {
+                        handStatus.card1 = 14;
+                    }
                 }
             });
             handStatus.card3 = 0;
