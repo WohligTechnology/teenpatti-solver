@@ -68,9 +68,9 @@ function scoreHandsNormal(playerCards) {
         // Sequence
         if (isSequence) {
             if (clonePlayerCards[0].number == 1 && clonePlayerCards[1].number == 2 && clonePlayerCards[0].number == 1 && clonePlayerCards[2].number == 3) {
-                handStatus.card1 = clonePlayerCards[2].number;
-                handStatus.card2 = clonePlayerCards[1].number;
-                handStatus.card3 = clonePlayerCards[0].number;
+                handStatus.card1 = 14;
+                handStatus.card2 = clonePlayerCards[2].number;
+                handStatus.card3 = clonePlayerCards[1].number;
             }
             handStatus.no = 3;
             handStatus.name = "Sequence";
