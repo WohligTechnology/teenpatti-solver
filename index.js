@@ -142,8 +142,12 @@ function scoreHandsTwo(playerCards) {
         // Sequence
         if (isSequence) {
             if (clonePlayerCards[0].number == 1 && clonePlayerCards[1].number == 2) {
-                handStatus.card1 = clonePlayerCards[1].number;
-                handStatus.card2 = clonePlayerCards[0].number;
+                handStatus.card1 = 14;
+                handStatus.card2 = 2;
+            }
+            if (clonePlayerCards[0].number == 12 && clonePlayerCards[1].number == 13) {
+                handStatus.card1 = 14;
+                handStatus.card2 = 13;
             }
             handStatus.no = 2;
             handStatus.name = "Sequence";
