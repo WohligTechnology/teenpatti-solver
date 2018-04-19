@@ -40,7 +40,6 @@ function scoreHandsNormal(playerCards) {
             handStatus.name = "Pair";
             handStatus.no = 1;
             _.each(groupByNumber, function (n, key) {
-                console.log(n, key);
                 if (n.length == 2) {
 
                     handStatus.card1 = parseInt(key);
