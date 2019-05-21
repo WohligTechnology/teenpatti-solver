@@ -285,15 +285,17 @@ function scoreHandsJokers(playerCards, jokers) {
   _.each(jokers, function(joker) {
     jokerNumbers.push(cards.cardValue(joker).number);
   });
-  console.log(jokerNumbers);
   var playerScoreObj = scoreHandsNormal(playerCards);
   var playerCardObjects = _.map(playerCards, function(n) {
     var cardObj = cards.cardValue(n);
-    cardObj.isJoker = cardObj.number == jokerNumbers;
+    // cardObj.isJoker = cardObj.number == jokerNumbers;
+    var isJoker = _.find(jokerNumbers, function(n) {
+      return cardObj.number == n;
+    });
+    cardObj.isJoker = isJoker ? true : false;
     return cardObj;
   });
   var numberOfJokers = _.filter(playerCardObjects, "isJoker").length;
-
   function getNonJokerCards() {
     var objs = _.filter(playerCardObjects, function(n) {
       return !n.isJoker;
@@ -306,9 +308,6 @@ function scoreHandsJokers(playerCards, jokers) {
   var card3;
 
   switch (numberOfJokers) {
-    // case 0:
-    //     playerScoreObj = playerScoreObj;
-    //     break;
     case 1:
       card1 = nonJokerCards[0];
       card2 = nonJokerCards[1];

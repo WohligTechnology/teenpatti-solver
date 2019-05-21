@@ -1,5 +1,8 @@
 var teenPattiScore = require("./index");
-var handJoker1 = teenPattiScore.scoreHandsJokers(["Ac", "Kc"], ["5c", "Kd"]);
+var handJoker1 = teenPattiScore.scoreHandsJokers(
+  ["Ac", "Kc", "5d"],
+  ["5c", "Kd"]
+);
 
 // var handJoker2 = teenPattiScore.scoreHandsJokers(["Kd", "Qd"], []);
 
