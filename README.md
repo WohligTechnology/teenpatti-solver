@@ -1,18 +1,19 @@
 # Teen Patti Solver for Node.Js
 
-
 Install
+
 ```javascript
 npm install teenpattisolver
 ```
 
-
 Importing file
+
 ```javascript
 var teenPattiScore = require("teenpattisolver");
 ```
 
 Find Score of Player in Normal Teen Patti Mode
+
 ```javascript
 var handNormal = teenPattiScore.scoreHandsNormal(["As", "Ad", "Ac"]);
 // handNormal : {
@@ -22,8 +23,8 @@ var handNormal = teenPattiScore.scoreHandsNormal(["As", "Ad", "Ac"]);
 // }
 ```
 
-
 Find Score of Player in 2 Card Mode
+
 ```javascript
 var handTwo = teenPattiScore.scoreHandsTwo(["As", "Ad"]);
 // handTwo: {
@@ -33,8 +34,8 @@ var handTwo = teenPattiScore.scoreHandsTwo(["As", "Ad"]);
 // }
 ```
 
-
 Find Score of Player in 4 Card Mode (Best of 3 from 4 cards, 4th Card is Discarded)
+
 ```javascript
 var handFour = teenPattiScore.scoreHandsFour(["As", "Ad", "Ac", "Ah"]); // Best of 3
 // handFour: {
@@ -44,8 +45,8 @@ var handFour = teenPattiScore.scoreHandsFour(["As", "Ad", "Ac", "Ah"]); // Best 
 // }
 ```
 
-
 Find Score of Player in Lowest Mode
+
 ```javascript
 var handLowest = teenPattiScore.scoreHandsLowest(["2s", "3d", "5c"]);
 // handLowest: {
@@ -56,6 +57,7 @@ var handLowest = teenPattiScore.scoreHandsLowest(["2s", "3d", "5c"]);
 ```
 
 Find Score of Player in 1 Card Joker Mode
+
 ```javascript
 var handJoker = teenPattiScore.scoreHandsJoker(["Qs", "5d", "3h"], "Qc");
 // handJoker: {
@@ -65,5 +67,12 @@ var handJoker = teenPattiScore.scoreHandsJoker(["Qs", "5d", "3h"], "Qc");
 // }
 ```
 
+Find Score of Player in Multi Card Joker Mode
 
-
+```javascript
+var handJoker = teenPattiScore.scoreHandsJokers(
+  ["Ac", "Kc", "5d"],
+  ["5c", "Kd"]
+);
+// handJoker: { name: 'Trio', desc: 'Trio of A', score: 5140101 }
+```
