@@ -83,6 +83,11 @@ function checkForSingle(data) {
       data["System Winning Condition"] = player2Hand.name;
       data["System Winning Description"] = player2Hand.desc;
     }
+    if (data["System Winner"] == data.Winner) {
+      data["TestCase"] = "Success";
+    } else {
+      data["TestCase"] = "Fail";
+    }
   }
 }
 
