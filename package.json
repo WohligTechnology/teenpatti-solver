@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/WohligTechnology/teenpatti-solver#readme",
   "dependencies": {
+    "csvtojson": "^2.0.8",
     "js-combinatorics": "^0.5.2",
+    "json2csv": "^4.5.1",
     "lodash": "^4.17.4"
   },
   "keywords": [
