@@ -4,7 +4,7 @@
   "description": "Teen Patti Solver for Node.Js",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon getWinner.js"
+    "test": "nodemon test.js"
   },
   "repository": {
     "type": "git",
