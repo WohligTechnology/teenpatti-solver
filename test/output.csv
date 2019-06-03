@@ -25,6 +25,7 @@
 "AS,AH","AC,AD","","2 Cards","Split Pot","","Split Pot","Pair","Pair of A","Success"
 "KH,AC","QC,QH","","2 Cards","Player2","","Player2","Pair","Pair of Q","Success"
 "TH,2S","KS,7S","","2 Cards","Player2","","Player2","Color","Color of K High","Success"
+"AS,4H","AD,KS","","2 Cards","Player2","","Player2","Sequence","Sequence of A High","Success"
 "TH,9S","KS,TC","","2 Cards","Player1","","Player1","Sequence","Sequence of 10 High","Success"
 "AS,AH,AC","AS,2S,3S","","Muflis","Player2","","Player2","Pure Sequence","Pure Sequence of A High","Success"
 "KH,KC,KS","3S,3C,3H","","Muflis","Player2","","Player2","Trio","Trio of 3","Success"
