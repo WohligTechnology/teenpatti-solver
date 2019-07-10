@@ -44,6 +44,7 @@ function scoreHandsNormal(playerCards) {
     if (sameNumberCount == 2) {
       handStatus.name = "Pair";
       handStatus.no = 1;
+      console.log(groupByNumber);
       _.each(groupByNumber, function(n, key) {
         if (n.length == 2) {
           handStatus.card1 = parseInt(key);
@@ -54,7 +55,7 @@ function scoreHandsNormal(playerCards) {
         } else {
           handStatus.card2 = parseInt(key);
           if (key == "1") {
-            handStatus.card1 = 14;
+            handStatus.card2 = 14;
           }
         }
       });
