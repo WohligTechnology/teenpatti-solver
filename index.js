@@ -5,7 +5,7 @@ var cards = require("./cards");
 function scoreHandsNormal(playerCards) {
   if (playerCards.length == 3) {
     var clonePlayerCards = _.sortBy(
-      _.map(playerCards, function(n) {
+      _.map(playerCards, function (n) {
         return cards.cardValue(n);
       }),
       "number"
@@ -44,7 +44,7 @@ function scoreHandsNormal(playerCards) {
     if (sameNumberCount == 2) {
       handStatus.name = "Pair";
       handStatus.no = 1;
-      _.each(groupByNumber, function(n, key) {
+      _.each(groupByNumber, function (n, key) {
         if (n.length == 2) {
           handStatus.card1 = parseInt(key);
           handStatus.desc = "Pair of " + cards.keyToString(key);
@@ -110,7 +110,7 @@ function scoreHandsNormal(playerCards) {
     return {
       name: handStatus.name,
       desc: handStatus.desc,
-      score: handStatus.score
+      score: handStatus.score,
     };
   } else {
     console.error(new Error("Number of cards in Score Hands Incorrect"));
@@ -120,7 +120,7 @@ function scoreHandsNormal(playerCards) {
 function scoreHandsTwo(playerCards) {
   if (playerCards.length == 2) {
     var clonePlayerCards = _.sortBy(
-      _.map(playerCards, function(n) {
+      _.map(playerCards, function (n) {
         return cards.cardValue(n);
       }),
       "number"
@@ -164,6 +164,10 @@ function scoreHandsTwo(playerCards) {
         handStatus.card1 = 14;
         handStatus.card2 = 2;
       }
+      if (clonePlayerCards[0].number == 2 && clonePlayerCards[1].number == 3) {
+        handStatus.card1 = 14;
+        handStatus.card2 = 3;
+      }
       if (
         clonePlayerCards[0].number == 12 &&
         clonePlayerCards[1].number == 13
@@ -197,7 +201,7 @@ function scoreHandsTwo(playerCards) {
     return {
       name: handStatus.name,
       desc: handStatus.desc,
-      score: handStatus.score
+      score: handStatus.score,
     };
   } else {
     console.error(new Error("Number of cards in Score Hands Incorrect"));
@@ -212,13 +216,13 @@ function scoreHandsFour(playerCards) {
       var obj = {
         cards: a,
         details: scoreHandsNormal(a),
-        remainingCard: _.head(_.difference(playerCards, a))
+        remainingCard: _.head(_.difference(playerCards, a)),
       };
       obj.remainingPoints = cards.numberValue(obj.remainingCard);
       // obj.details.score = obj.details.score * 100 + obj.remainingPoints;
       playerCombinations.push(obj);
     }
-    var playerScoreObj = _.maxBy(playerCombinations, function(n) {
+    var playerScoreObj = _.maxBy(playerCombinations, function (n) {
       return n.details.score;
     });
     return playerScoreObj.details;
@@ -236,7 +240,7 @@ function scoreHandsLowest(playerCards) {
 function scoreHandsJoker(playerCards, joker) {
   var jokerNumber = cards.cardValue(joker).number;
   var playerScoreObj = scoreHandsNormal(playerCards);
-  var playerCardObjects = _.map(playerCards, function(n) {
+  var playerCardObjects = _.map(playerCards, function (n) {
     var cardObj = cards.cardValue(n);
     cardObj.isJoker = cardObj.number == jokerNumber;
     return cardObj;
@@ -244,7 +248,7 @@ function scoreHandsJoker(playerCards, joker) {
   var numberOfJokers = _.filter(playerCardObjects, "isJoker").length;
 
   function getNonJokerCards() {
-    var objs = _.filter(playerCardObjects, function(n) {
+    var objs = _.filter(playerCardObjects, function (n) {
       return !n.isJoker;
     });
     return _.map(objs, "value");
@@ -262,10 +266,10 @@ function scoreHandsJoker(playerCards, joker) {
       card1 = nonJokerCards[0];
       card2 = nonJokerCards[1];
       var allCards = _.map(cards.getAllCards(), "shortName");
-      var allCasesObjs = _.map(allCards, function(n) {
+      var allCasesObjs = _.map(allCards, function (n) {
         return scoreHandsNormal([card1, card2, n]);
       });
-      playerScoreObj = _.maxBy(allCasesObjs, function(n) {
+      playerScoreObj = _.maxBy(allCasesObjs, function (n) {
         return n.score;
       });
       break;
@@ -282,14 +286,14 @@ function scoreHandsJoker(playerCards, joker) {
 
 function scoreHandsJokers(playerCards, jokers) {
   var jokerNumbers = [];
-  _.each(jokers, function(joker) {
+  _.each(jokers, function (joker) {
     jokerNumbers.push(cards.cardValue(joker).number);
   });
   var playerScoreObj = scoreHandsNormal(playerCards);
-  var playerCardObjects = _.map(playerCards, function(n) {
+  var playerCardObjects = _.map(playerCards, function (n) {
     var cardObj = cards.cardValue(n);
     // cardObj.isJoker = cardObj.number == jokerNumbers;
-    var isJoker = _.find(jokerNumbers, function(n) {
+    var isJoker = _.find(jokerNumbers, function (n) {
       return cardObj.number == n;
     });
     cardObj.isJoker = isJoker ? true : false;
@@ -297,7 +301,7 @@ function scoreHandsJokers(playerCards, jokers) {
   });
   var numberOfJokers = _.filter(playerCardObjects, "isJoker").length;
   function getNonJokerCards() {
-    var objs = _.filter(playerCardObjects, function(n) {
+    var objs = _.filter(playerCardObjects, function (n) {
       return !n.isJoker;
     });
     return _.map(objs, "value");
@@ -312,10 +316,10 @@ function scoreHandsJokers(playerCards, jokers) {
       card1 = nonJokerCards[0];
       card2 = nonJokerCards[1];
       var allCards = _.map(cards.getAllCards(), "shortName");
-      var allCasesObjs = _.map(allCards, function(n) {
+      var allCasesObjs = _.map(allCards, function (n) {
         return scoreHandsNormal([card1, card2, n]);
       });
-      playerScoreObj = _.maxBy(allCasesObjs, function(n) {
+      playerScoreObj = _.maxBy(allCasesObjs, function (n) {
         return n.score;
       });
       break;
@@ -336,5 +340,5 @@ module.exports = {
   scoreHandsFour: scoreHandsFour,
   scoreHandsLowest: scoreHandsLowest,
   scoreHandsJoker: scoreHandsJoker,
-  scoreHandsJokers: scoreHandsJokers
+  scoreHandsJokers: scoreHandsJokers,
 };
